@@ -1,0 +1,42 @@
+{
+  "subjects": [
+    {"id": "en", "icon": "🇬🇧", "name": "Ingliz tili", "exam": "IELTS / CEFR / General English"},
+    {"id": "exact", "icon": "📐", "name": "Aniq fanlar", "exam": "Matematika / Fizika / SAT · Milliy sertifikat"},
+    {"id": "bio", "icon": "🧬", "name": "Kimyo · Biologiya", "exam": "Maktab o'quvchilari va abituriyentlar · Milliy sertifikat"},
+    {"id": "ru", "icon": "🇷🇺", "name": "Rus tili", "exam": "So'zlashuv / Abituriyentlar uchun"},
+    {"id": "hist", "icon": "📜", "name": "Tarix", "exam": "Abituriyentlar · Milliy sertifikat"}
+  ],
+  "courses": [
+    {"id": "ielts", "subject": "en", "name": "IELTS / CEFR — to'liq kurs", "desc": "Tavsiya etilgan daraja: Intermediate+. Yakshanba — Mock test va Speaking", "lessons": "Kun ora · 1.5 soat", "duration": "4 oy", "price": null, "tag": "TOP"},
+    {"id": "ieltsfast", "subject": "en", "name": "IELTS — tezlashtirilgan", "desc": "Tavsiya etilgan daraja: IELTS 5.5+", "lessons": "Kun ora · 1.5 soat", "duration": "2 oy", "price": null, "tag": ""},
+    {"id": "preielts", "subject": "en", "name": "Pre-IELTS", "desc": "Tavsiya etilgan daraja: Pre-Intermediate", "lessons": "Haftada 3 kun · 1.5 soat", "duration": "6 oy", "price": null, "tag": ""},
+    {"id": "general", "subject": "en", "name": "General English", "desc": "6 daraja: Beginner → Advanced. Har daraja oxirida imtihon va sertifikat", "lessons": "Haftada 3 kun · 1.5 soat", "duration": "har daraja 3–4 oy", "price": 750000, "tag": ""},
+    {"id": "math", "subject": "exact", "name": "Matematika", "desc": "Maktab o'quvchilari va abituriyentlar uchun alohida guruhlar", "lessons": "Haftada 3 kun · 1.5 soat", "duration": "guruhga qarab", "price": null, "tag": "TOP"},
+    {"id": "physics", "subject": "exact", "name": "Fizika", "desc": "Maktab o'quvchilari va abituriyentlar uchun alohida guruhlar", "lessons": "Haftada 3 kun · 1.5 soat", "duration": "guruhga qarab", "price": null, "tag": ""},
+    {"id": "sat", "subject": "exact", "name": "SAT Math", "desc": "Xorijiy universitetlarga tayyorgarlik. Ustoz — SAT 790", "lessons": "Haftada 3 kun · 1.5 soat", "duration": "guruhga qarab", "price": null, "tag": ""},
+    {"id": "chem", "subject": "bio", "name": "Kimyo", "desc": "Abituriyentlar va Milliy sertifikat. Tibbiyot OTMlariga tayyorlov", "lessons": "Haftada 3 kun · 1.5 soat", "duration": "guruhga qarab", "price": null, "tag": "TOP"},
+    {"id": "biology", "subject": "bio", "name": "Biologiya", "desc": "Nazariya + amaliy mashg'ulotlar (laboratoriya)", "lessons": "Haftada 3 kun · 1.5 soat", "duration": "guruhga qarab", "price": null, "tag": ""},
+    {"id": "rusp", "subject": "ru", "name": "Rus tili — so'zlashuv", "desc": "1-etap — bazaviy (4 oy), 2-etap — to'liq kurs (7 oy). Oxirida sertifikat", "lessons": "Haftada 3 kun · 1.5 soat", "duration": "4 / 7 oy", "price": null, "tag": ""},
+    {"id": "rulit", "subject": "ru", "name": "Rus tili va adabiyoti", "desc": "Abituriyentlar uchun: to'liq grammatika, testlar, adabiy asarlar tahlili", "lessons": "Haftada 3 kun · 1.5 soat", "duration": "11 oy", "price": null, "tag": "TOP"},
+    {"id": "history", "subject": "hist", "name": "Tarix", "desc": "Asosiy blok + fakultativ: har yakshanba 3 soat", "lessons": "Haftada 3 kun · 1.5 soat", "duration": "guruhga qarab", "price": null, "tag": ""}
+  ],
+  "times": ["Ertalab · 09:00–12:00", "Kunduzi · 13:00–16:00", "Kechqurun · 16:00–20:00"],
+  "teachers": [
+    {"name": "Mr. George Green", "role": "IELTS instruktor", "info": "30 yil tajriba · TESOL"},
+    {"name": "Mrs. Shaxnoza", "role": "IELTS instruktor", "info": "16 yil tajriba · TEFL"},
+    {"name": "Mrs. Albina", "role": "Ingliz tili / IELTS", "info": "10 yil tajriba"},
+    {"name": "Dildora Kidirbayeva", "role": "IELTS instruktor", "info": "7 yil tajriba · IELTS 8.0"},
+    {"name": "Farrux Alisherovich", "role": "Kimyo ustozi", "info": "6 yil abituriyent tayyorlash"},
+    {"name": "Muhammad Nagashbayevich", "role": "Matematika ustozi", "info": "5 yil tajriba · SAT 790"},
+    {"name": "Miss Nilufar", "role": "Ingliz tili", "info": "5 yil tajriba"},
+    {"name": "Miss Alex", "role": "CEFR / IELTS", "info": "4 yil tajriba"}
+  ],
+  "results": [
+    {"name": "Fayzullaev Baxtiyorjon", "score": "IELTS 8.0", "detail": "L 9.0 · R 8.5 · W 7.0 · S 7.0"},
+    {"name": "Mark Li", "score": "IELTS 8.0", "detail": ""},
+    {"name": "Ismailov Mirxayot", "score": "TDIU", "detail": "Iqtisodiyot"},
+    {"name": "O'quvchimiz", "score": "Diplomatiya", "detail": "Grant · 3 ta sertifikat"},
+    {"name": "O'quvchilarimiz", "score": "TATU / MDU", "detail": "Byudjetga kirishdi"},
+    {"name": "O'quvchilarimiz", "score": "Toshkent tibbiyot", "detail": "Kimyo-biologiya"}
+  ]
+}
