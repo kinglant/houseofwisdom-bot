@@ -7,157 +7,182 @@
 <title>House of Wisdom</title>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,500;1,600;1,700&display=swap" rel="stylesheet">
 <style>
+  /* "Akademik diplom" uslubi: krem qog'oz, ko'k siyoh, to'q sariq aksent */
   :root {
-    --blue: #213a8f;
-    --blue-d: #0e1c52;
-    --blue-b: #285cdc;
-    --blue-l: #eaeefb;
+    --navy: #213a8f;
+    --ink: #121c42;
+    --paper: #faf7ef;
+    --paper-d: #efe8d6;
+    --card: #fffdf8;
     --orange: #f26b1d;
-    --bg: #f3f5fb;
-    --card: #ffffff;
-    --line: #dde3f3;
-    --text: #0e1c52;
-    --muted: #66708f;
+    --muted: #6e7080;
+    --rule: #d9d1bc;
+    --serif: "Playfair Display", Georgia, serif;
+    --sans: "Manrope", system-ui, sans-serif;
   }
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-  html, body { margin: 0; background: var(--bg); color: var(--text); font-family: "Montserrat", system-ui, sans-serif; }
-  body { padding-bottom: 100px; overflow-x: hidden; }
-  button { font-family: inherit; }
+  html, body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+  body { padding-bottom: 104px; overflow-x: hidden; }
+  button { font-family: inherit; color: inherit; }
 
-  header { position: relative; overflow: hidden; color: #fff; padding: 20px 16px 24px;
-    background: radial-gradient(110% 80% at 100% 0%, var(--blue-b) 0%, transparent 60%), linear-gradient(160deg, var(--blue), var(--blue-d)); }
-  header::before, header::after { content: ""; position: absolute; border-radius: 50%; background: rgba(255,255,255,.07); }
-  header::before { width: 220px; height: 220px; right: -70px; top: -60px; }
-  header::after { width: 140px; height: 140px; right: 40px; bottom: -80px; }
-  .brand { display: flex; align-items: center; gap: 12px; position: relative; z-index: 1; }
-  .logo { width: 52px; height: 52px; flex: none; border-radius: 50%; background: #fff; }
-  .brand b { display: block; font-size: 15px; font-weight: 800; letter-spacing: 1.2px; }
-  .brand small { font-size: 10.5px; letter-spacing: 1.8px; opacity: .8; font-weight: 600; }
-  .ribbon { display: inline-block; margin-top: 20px; padding: 5px 10px; border-radius: 8px; background: var(--orange);
-    font-size: 11px; font-weight: 800; letter-spacing: 1px; position: relative; z-index: 1; }
-  h1 { margin: 10px 0 4px; font-size: 15px; font-weight: 500; position: relative; z-index: 1; }
-  h1 strong { display: block; font-size: 34px; line-height: 1; font-weight: 900; letter-spacing: -.5px; margin-top: 4px; }
-  .stats { display: flex; gap: 8px; margin-top: 18px; position: relative; z-index: 1; }
-  .stats div { flex: 1; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.18); border-radius: 14px;
-    padding: 10px; font-size: 10.5px; line-height: 1.3; }
-  .stats b { display: block; font-size: 16px; font-weight: 800; }
+  .caps { font-size: 10.5px; letter-spacing: 2.6px; font-weight: 800; text-transform: uppercase; }
 
-  .label { padding: 20px 16px 10px; font-size: 11.5px; letter-spacing: 1.8px; color: var(--muted); font-weight: 700; }
-  .tabs { display: flex; gap: 8px; padding: 0 16px 4px; overflow-x: auto; scrollbar-width: none; }
-  .tabs::-webkit-scrollbar { display: none; }
-  .tab { flex: none; display: flex; align-items: center; gap: 7px; padding: 11px 14px; border-radius: 14px;
-    border: 1.5px solid var(--line); background: var(--card); color: var(--text); font-weight: 700; font-size: 13.5px; cursor: pointer; white-space: nowrap; }
-  .tab .f { font-size: 18px; }
-  .tab.active { background: var(--blue); border-color: var(--blue); color: #fff; box-shadow: 0 6px 16px rgba(33,58,143,.25); }
-  .exam { padding: 10px 16px 0; color: var(--muted); font-size: 12.5px; }
-  .exam b { color: var(--blue); }
+  /* Sarlavha — diplom ramkasi */
+  .hero { margin: 14px 14px 0; padding: 22px 18px 20px; text-align: center; position: relative;
+    border: 3px solid var(--navy); outline: 1px solid var(--navy); outline-offset: -9px; background: var(--card); }
+  .hero::before, .hero::after { content: ""; position: absolute; width: 10px; height: 10px; background: var(--orange); transform: rotate(45deg); top: 4px; }
+  .hero::before { left: 4px; } .hero::after { right: 4px; }
+  .hero img { width: 64px; height: 64px; }
+  .hero .caps { color: var(--navy); margin-top: 8px; }
+  .hero h1 { margin: 12px 0 0; font-family: var(--serif); font-size: 36px; line-height: 1.05; font-weight: 800; }
+  .hero h1 em { display: block; color: var(--navy); font-weight: 700; }
+  .hero h1 em span { background: linear-gradient(transparent 82%, var(--orange) 82%, var(--orange) 94%, transparent 94%); }
+  .figures { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 18px; border-top: 1px solid var(--rule); padding-top: 14px; }
+  .figures div + div { border-left: 1px solid var(--rule); }
+  .figures b { display: block; font-family: var(--serif); font-size: 24px; color: var(--navy); }
+  .figures span { font-size: 10.5px; color: var(--muted); font-weight: 600; }
+  .ribbon { display: inline-block; margin-top: 16px; padding: 7px 22px 7px 14px; background: var(--orange); color: #fff;
+    clip-path: polygon(0 0, 100% 0, 92% 50%, 100% 100%, 0 100%); }
 
-  .courses { padding: 0 16px; display: grid; gap: 10px; }
-  .course { position: relative; text-align: left; width: 100%; border: 1.5px solid var(--line); background: var(--card);
-    color: var(--text); border-radius: 18px; padding: 16px; cursor: pointer; transition: border-color .15s, transform .15s, box-shadow .15s; }
-  .course:active { transform: scale(.99); }
-  .course.active { border-color: var(--blue); box-shadow: 0 8px 22px rgba(33,58,143,.14); }
-  .row { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
-  .course h3 { margin: 0; font-size: 16.5px; font-weight: 800; }
-  .badge { font-size: 10px; font-weight: 800; letter-spacing: .6px; padding: 4px 8px; border-radius: 8px; background: var(--orange); color: #fff; flex: none; }
-  .course p { margin: 6px 0 8px; font-size: 13px; color: #2b3463; line-height: 1.4; }
-  .meta { display: flex; flex-wrap: wrap; gap: 6px; }
-  .meta span { font-size: 11.5px; font-weight: 600; color: var(--blue); background: var(--blue-l); padding: 4px 8px; border-radius: 8px; }
-  .price { margin-top: 12px; display: flex; align-items: baseline; gap: 6px; }
-  .price b { font-size: 20px; font-weight: 800; color: var(--blue); }
-  .price b.ask { font-size: 13.5px; }
-  .price span { color: var(--muted); font-size: 12px; }
-  .radio { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--line); flex: none; display: grid; place-items: center; }
-  .course.active .radio, .time.active .radio { border-color: var(--blue); }
-  .course.active .radio::after, .time.active .radio::after { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--blue); }
+  /* Bo'lim sarlavhalari */
+  .sec { display: flex; align-items: center; gap: 10px; padding: 26px 16px 12px; }
+  .sec i { font-family: var(--serif); font-style: normal; color: var(--orange); font-size: 15px; font-weight: 700; }
+  .sec h2 { margin: 0; font-family: var(--serif); font-size: 22px; font-weight: 700; }
+  .sec::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
 
-  .times { display: grid; gap: 8px; padding: 0 16px; }
-  .time { display: flex; justify-content: space-between; align-items: center; padding: 13px 14px; border-radius: 14px;
-    border: 1.5px solid var(--line); background: var(--card); color: var(--text); font-weight: 600; font-size: 13.5px; cursor: pointer; }
-  .time.active { border-color: var(--blue); background: var(--blue-l); color: var(--blue); }
+  /* Yo'nalishlar */
+  .subjects { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 0 16px; }
+  .subj { text-align: left; padding: 12px 12px; border: 1px solid var(--rule); background: var(--card); cursor: pointer;
+    display: flex; gap: 10px; align-items: baseline; border-radius: 2px; }
+  .subj:last-child:nth-child(odd) { grid-column: span 2; }
+  .subj i { font-family: var(--serif); font-style: normal; color: var(--orange); font-weight: 700; font-size: 14px; min-width: 22px; }
+  .subj b { font-family: var(--serif); font-size: 16px; font-weight: 700; }
+  .subj.active { background: var(--navy); border-color: var(--navy); color: #fff; }
+  .exam { padding: 10px 16px 0; color: var(--muted); font-size: 12.5px; font-style: italic; font-family: var(--serif); }
 
-  .scroller { display: flex; gap: 10px; overflow-x: auto; padding: 0 16px 4px; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  /* Kurslar — reyestr */
+  .courses { margin: 0 16px; border-top: 2px solid var(--ink); }
+  .course { display: grid; grid-template-columns: 34px 1fr; gap: 4px 10px; width: 100%; text-align: left; padding: 16px 0 16px 0;
+    border: none; border-bottom: 1px solid var(--rule); background: none; cursor: pointer; position: relative; }
+  .course .n { font-family: var(--serif); font-size: 22px; color: var(--rule); font-weight: 800; line-height: 1; padding-left: 6px; transition: color .15s; }
+  .course h3 { margin: 0; font-family: var(--serif); font-size: 18.5px; font-weight: 700; line-height: 1.2; padding-right: 30px; }
+  .course .tag { position: absolute; right: 0; top: 16px; color: var(--orange); font-size: 9.5px; }
+  .course p { grid-column: 2; margin: 4px 0 6px; font-size: 13px; color: #3a405c; line-height: 1.45; }
+  .course .meta { grid-column: 2; font-size: 12px; color: var(--muted); font-weight: 600; }
+  .course .price { grid-column: 2; display: flex; align-items: baseline; gap: 8px; margin-top: 8px; font-size: 12px; color: var(--muted); }
+  .course .price::before { content: "Narx"; }
+  .course .price span { flex: 1; border-bottom: 2px dotted var(--rule); transform: translateY(-3px); }
+  .course .price b { font-family: var(--serif); font-size: 17px; color: var(--navy); }
+  .course .price b.ask { font-family: var(--sans); font-size: 12.5px; }
+  .course.active { background: linear-gradient(90deg, rgba(33,58,143,.06), transparent 70%); }
+  .course.active::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--orange); }
+  .course.active .n { color: var(--navy); }
+  .course.active .tag { display: none; }
+  .course.active::after { content: "✓"; position: absolute; right: 2px; top: 13px; width: 24px; height: 24px; border-radius: 50%;
+    background: var(--navy); color: #fff; display: grid; place-items: center; font-size: 13px; font-weight: 800; }
+
+  /* Vaqt — segment */
+  .times { display: grid; grid-template-columns: repeat(3, 1fr); margin: 0 16px; border: 1px solid var(--navy); }
+  .time { padding: 11px 4px; border: none; background: var(--card); cursor: pointer; text-align: center; }
+  .time + .time { border-left: 1px solid var(--navy); }
+  .time b { display: block; font-family: var(--serif); font-size: 15px; }
+  .time small { font-size: 11px; color: var(--muted); font-weight: 600; }
+  .time.active { background: var(--navy); color: #fff; }
+  .time.active small { color: #c9d3f5; }
+
+  /* Natijalar — mini sertifikatlar */
+  .scroller { display: flex; gap: 12px; overflow-x: auto; padding: 0 16px 6px; scroll-snap-type: x mandatory; scrollbar-width: none; }
   .scroller::-webkit-scrollbar { display: none; }
-  .res { flex: none; width: 168px; scroll-snap-align: start; border-radius: 18px; padding: 14px; color: #fff;
-    background: linear-gradient(160deg, var(--blue), var(--blue-d)); }
-  .res b { display: block; font-size: 20px; font-weight: 900; }
-  .res span { display: block; font-size: 12.5px; font-weight: 700; margin-top: 8px; }
-  .res small { display: block; font-size: 11px; opacity: .75; margin-top: 3px; }
-  .teacher { flex: none; width: 190px; scroll-snap-align: start; border-radius: 18px; padding: 14px; background: var(--card); border: 1px solid var(--line); }
-  .teacher .av { width: 40px; height: 40px; border-radius: 50%; background: var(--blue-l); color: var(--blue); display: grid; place-items: center; font-weight: 800; }
-  .teacher b { display: block; margin-top: 10px; font-size: 13.5px; }
-  .teacher span { display: block; font-size: 12px; color: var(--blue); font-weight: 600; margin-top: 2px; }
-  .teacher small { display: block; font-size: 11.5px; color: var(--muted); margin-top: 4px; }
+  .cert { flex: none; width: 200px; scroll-snap-align: start; text-align: center; padding: 16px 12px 14px; background: var(--card);
+    border: 2px solid var(--navy); outline: 1px solid var(--navy); outline-offset: -6px; }
+  .cert .caps { color: var(--muted); font-size: 8.5px; letter-spacing: 2px; }
+  .cert b { display: block; font-family: var(--serif); font-size: 24px; color: var(--navy); margin: 6px 0 2px; }
+  .cert span { display: block; font-family: var(--serif); font-style: italic; font-size: 14px; }
+  .cert small { display: block; font-size: 11px; color: var(--muted); margin-top: 6px; }
 
-  .promo { margin: 0 16px; border-radius: 18px; padding: 16px; background: var(--orange); color: #fff; display: flex; gap: 14px; align-items: center; text-decoration: none; }
-  .promo b { display: block; font-size: 22px; font-weight: 900; }
-  .promo span { font-size: 12.5px; font-weight: 600; }
-  .promo i { font-style: normal; font-size: 34px; }
+  /* Ustozlar — ro'yxat */
+  .teachers { margin: 0 16px; }
+  .t { display: flex; gap: 12px; align-items: center; padding: 11px 0; border-bottom: 1px solid var(--rule); }
+  .t .av { width: 40px; height: 40px; flex: none; border-radius: 50%; border: 1.5px solid var(--navy); color: var(--navy);
+    display: grid; place-items: center; font-family: var(--serif); font-weight: 700; font-size: 15px; }
+  .t div { flex: 1; min-width: 0; }
+  .t b { display: block; font-family: var(--serif); font-size: 15.5px; }
+  .t span { font-size: 12px; color: var(--navy); font-weight: 600; }
+  .t small { flex: none; text-align: right; font-size: 11px; color: var(--muted); max-width: 40%; }
 
-  .info { margin: 0 16px; padding: 4px 16px; border-radius: 18px; background: var(--card); border: 1px solid var(--line); }
-  .info a, .info div { display: flex; gap: 12px; align-items: center; padding: 12px 0; font-size: 13.5px; color: var(--text);
-    text-decoration: none; border-bottom: 1px solid var(--line); }
-  .info > :last-child { border-bottom: none; }
-  .info i { flex: none; width: 36px; height: 36px; border-radius: 12px; background: var(--blue-l); display: grid; place-items: center;
-    font-style: normal; font-size: 16px; }
-  .info small { display: block; color: var(--muted); font-size: 11.5px; }
-  .info .go { margin-left: auto; color: var(--blue); font-weight: 800; }
+  /* Kupon */
+  .coupon { margin: 0 16px; display: grid; grid-template-columns: 1fr auto; background: var(--navy); color: #fff; text-decoration: none; position: relative; }
+  .coupon > div { padding: 16px; }
+  .coupon .l { border-right: 2px dashed rgba(255,255,255,.35); }
+  .coupon .caps { color: var(--orange); font-size: 9.5px; }
+  .coupon b { display: block; font-family: var(--serif); font-size: 30px; font-weight: 900; margin-top: 4px; }
+  .coupon em { font-family: var(--serif); font-size: 14px; color: #c9d3f5; }
+  .coupon .r { display: grid; place-items: center; font-family: var(--serif); font-size: 13px; text-align: center; width: 92px; }
+  .coupon .r span { font-size: 26px; display: block; }
+  .coupon::before, .coupon::after { content: ""; position: absolute; right: 83px; width: 18px; height: 18px; border-radius: 50%; background: var(--paper); }
+  .coupon::before { top: -9px; } .coupon::after { bottom: -9px; }
 
-  .note { text-align: center; color: #9aa2bd; font-size: 11px; padding: 18px 16px 0; }
+  /* Aloqa */
+  .info { margin: 0 16px; }
+  .info a, .info div { display: grid; grid-template-columns: 82px 1fr auto; gap: 10px; align-items: baseline; padding: 12px 0;
+    border-bottom: 1px solid var(--rule); text-decoration: none; color: var(--ink); font-size: 14px; font-weight: 600; }
+  .info .caps { color: var(--muted); font-size: 9.5px; letter-spacing: 1.8px; }
+  .info .go { color: var(--orange); font-weight: 800; }
+
+  .note { text-align: center; color: var(--muted); font-size: 12px; font-family: var(--serif); font-style: italic; padding: 22px 16px 0; }
 
   .fallback-bar { position: fixed; left: 0; right: 0; bottom: 0; padding: 14px 16px 18px;
-    background: linear-gradient(rgba(243,245,251,0), var(--bg) 35%); }
-  .fallback-bar button { width: 100%; border: none; border-radius: 16px; padding: 16px; background: var(--blue);
-    color: #fff; font-weight: 800; font-size: 15px; box-shadow: 0 8px 20px rgba(33,58,143,.3); }
+    background: linear-gradient(rgba(250,247,239,0), var(--paper) 35%); }
+  .fallback-bar button { width: 100%; border: none; padding: 16px; background: var(--navy); color: #fff;
+    font-family: var(--serif); font-weight: 700; font-size: 16px; outline: 1px solid rgba(255,255,255,.5); outline-offset: -6px; }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="brand">
-    <img class="logo" src="logo.png" alt="">
-    <div><b>HOUSE OF WISDOM</b><small>LEARNING CENTER</small></div>
+<section class="hero">
+  <img src="logo.png" alt="House of Wisdom">
+  <div class="caps">House of Wisdom · Toshkent</div>
+  <h1>Bilim — <em><span>kelajak kaliti.</span></em></h1>
+  <div class="figures">
+    <div><b>8.0</b><span>IELTS natijalar</span></div>
+    <div><b>65+</b><span>Milliy sertifikat</span></div>
+    <div><b>25 yil</b><span>ustozlar tajribasi</span></div>
   </div>
-  <span class="ribbon">1-DARS BEPUL</span>
-  <h1>O'qishga kiring — <strong>BIZ BILAN!</strong></h1>
-  <div class="stats">
-    <div><b>8.0</b>IELTS natijalar</div>
-    <div><b>65+</b>Milliy sertifikat</div>
-    <div><b>25 yil</b>ustozlar tajribasi</div>
-  </div>
-</header>
+  <div class="ribbon caps">Birinchi dars bepul</div>
+</section>
 
-<div class="label">YO'NALISH</div>
-<nav class="tabs" id="tabs"></nav>
+<div class="sec"><i>I</i><h2>Yo'nalish</h2></div>
+<nav class="subjects" id="subjects"></nav>
 <div class="exam" id="exam"></div>
 
-<div class="label">KURS</div>
+<div class="sec"><i>II</i><h2>Kurs</h2></div>
 <div class="courses" id="courses"></div>
 
-<div class="label">QULAY VAQT</div>
+<div class="sec"><i>III</i><h2>Qulay vaqt</h2></div>
 <div class="times" id="times"></div>
 
-<div class="label">NATIJALARIMIZ</div>
+<div class="sec"><i>IV</i><h2>Natijalarimiz</h2></div>
 <div class="scroller" id="results"></div>
 
-<div class="label">USTOZLAR</div>
-<div class="scroller" id="teachers"></div>
+<div class="sec"><i>V</i><h2>Ustozlar</h2></div>
+<div class="teachers" id="teachers"></div>
 
-<div class="label">AKSIYA</div>
-<a class="promo" href="https://t.me/houseofwisdom_uz_bot?start=dost" data-tg>
-  <i>🤝</i><div><b>100 000 so'm</b><span>Do'stingizni olib keling — u to'lov qilsa, sizga bonus. Botda /dost</span></div>
+<div class="sec"><i>VI</i><h2>Aksiya</h2></div>
+<a class="coupon" href="https://t.me/houseofwisdom_uz_bot?start=dost" data-tg>
+  <div class="l"><div class="caps">Do'stni olib kel</div><b>100 000 so'm</b><em>do'stingiz to'lov qilsa — sizga bonus</em></div>
+  <div class="r"><div><span>🤝</span>Havola olish</div></div>
 </a>
 
-<div class="label">MARKAZ</div>
+<div class="sec"><i>VII</i><h2>Markaz</h2></div>
 <div class="info">
-  <a href="https://yandex.uz/maps/?text=Toshkent%2C%20Yunusobod%2013-kvartal%2C%20Niyozbek%201" target="_blank" data-ext><i>📍</i><span>Yunusobod, 13-kvartal, Niyozbek 1<small>Toshkent</small></span><span class="go">›</span></a>
-  <div><i>🕘</i><span>Dushanba – Shanba<small>09:00 – 20:00</small></span></div>
-  <a href="tel:+998785556515"><i>📞</i><span>+998 78 555 65 15<small>Qo'ng'iroq qilish</small></span><span class="go">›</span></a>
-  <a href="tel:+998555083232"><i>📞</i><span>+998 55 508 32 32<small>Qo'ng'iroq qilish</small></span><span class="go">›</span></a>
-  <a href="https://t.me/wisdom_manager" data-tg><i>💬</i><span>@wisdom_manager<small>Menejerga yozish</small></span><span class="go">›</span></a>
-  <a href="https://instagram.com/houseofwisdom_uz" target="_blank" data-ext><i>📸</i><span>@houseofwisdom_uz<small>Instagram</small></span><span class="go">›</span></a>
+  <a href="https://yandex.uz/maps/?text=Toshkent%2C%20Yunusobod%2013-kvartal%2C%20Niyozbek%201" target="_blank" data-ext><span class="caps">Manzil</span><span>Yunusobod, 13-kv., Niyozbek 1</span><span class="go">→</span></a>
+  <div><span class="caps">Ish vaqti</span><span>Du – Sha, 09:00 – 20:00</span><span></span></div>
+  <a href="tel:+998785556515"><span class="caps">Telefon</span><span>+998 78 555 65 15</span><span class="go">→</span></a>
+  <a href="tel:+998555083232"><span class="caps">Telefon</span><span>+998 55 508 32 32</span><span class="go">→</span></a>
+  <a href="https://t.me/wisdom_manager" data-tg><span class="caps">Menejer</span><span>@wisdom_manager</span><span class="go">→</span></a>
+  <a href="https://instagram.com/houseofwisdom_uz" target="_blank" data-ext><span class="caps">Instagram</span><span>@houseofwisdom_uz</span><span class="go">→</span></a>
 </div>
 
 <p class="note">Bir nechta fanga chegirma bor · aniq narxni menejer aytadi</p>
@@ -166,6 +191,7 @@
 
 <script>
 const BOT = "houseofwisdom_uz_bot";
+const ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII"];
 const tg = window.Telegram && window.Telegram.WebApp;
 const inTelegram = !!(tg && tg.initData);
 let data = { subjects: [], courses: [], times: [], teachers: [], results: [] };
@@ -173,29 +199,32 @@ let subject = null, course = null, time = null;
 
 const fmt = n => n.toLocaleString("ru-RU").replace(/\s|,/g, " ") + " so'm";
 const initials = n => n.replace(/^(Mr|Mrs|Miss)\.?\s+/i, "").split(" ").map(w => w[0]).slice(0, 2).join("");
+const pad = i => String(i + 1).padStart(2, "0");
 
 function render() {
-  document.getElementById("tabs").innerHTML = data.subjects.map(s => `
-    <button class="tab${s.id === subject ? " active" : ""}" data-subject="${s.id}"><span class="f">${s.icon}</span>${s.name}</button>`).join("");
-  const S = data.subjects.find(s => s.id === subject);
-  document.getElementById("exam").innerHTML = `<b>${S.exam}</b>`;
-  document.getElementById("courses").innerHTML = data.courses.filter(c => c.subject === subject).map(c => `
+  document.getElementById("subjects").innerHTML = data.subjects.map((s, i) => `
+    <button class="subj${s.id === subject ? " active" : ""}" data-subject="${s.id}"><i>${ROMAN[i]}</i><b>${s.name}</b></button>`).join("");
+  document.getElementById("exam").textContent = data.subjects.find(s => s.id === subject).exam;
+  document.getElementById("courses").innerHTML = data.courses.filter(c => c.subject === subject).map((c, i) => `
     <button class="course${c.id === course ? " active" : ""}" data-course="${c.id}">
-      <div class="row"><h3>${c.name}</h3>${c.tag ? `<span class="badge">${c.tag}</span>` : ""}</div>
+      <span class="n">${pad(i)}</span><h3>${c.name}</h3>
+      ${c.tag ? `<span class="tag caps">★ ${c.tag}</span>` : ""}
       <p>${c.desc}</p>
-      <div class="meta"><span>🗓 ${c.lessons}</span><span>⏳ ${c.duration}</span></div>
-      <div class="row"><div class="price">${c.price ? `<b>${fmt(c.price)}</b><span>/ oy</span>` : `<b class="ask">Narxni menejer aytadi</b>`}</div><span class="radio"></span></div>
+      <div class="meta">${c.lessons} · ${c.duration}</div>
+      <div class="price"><span></span>${c.price ? `<b>${fmt(c.price)}</b>/oy` : `<b class="ask">menejer aytadi</b>`}</div>
     </button>`).join("");
-  document.getElementById("times").innerHTML = data.times.map((t, i) => `
-    <button class="time${i === time ? " active" : ""}" data-time="${i}">${t}<span class="radio"></span></button>`).join("");
+  document.getElementById("times").innerHTML = data.times.map((t, i) => {
+    const [label, hours] = t.split(" · ");
+    return `<button class="time${i === time ? " active" : ""}" data-time="${i}"><b>${label}</b><small>${hours}</small></button>`;
+  }).join("");
   updateButton();
 }
 
 function renderStatic() {
   document.getElementById("results").innerHTML = data.results.map(r => `
-    <div class="res"><b>${r.score}</b><span>${r.name}</span>${r.detail ? `<small>${r.detail}</small>` : ""}</div>`).join("");
+    <div class="cert"><div class="caps">Certificate of achievement</div><b>${r.score}</b><span>${r.name}</span>${r.detail ? `<small>${r.detail}</small>` : ""}</div>`).join("");
   document.getElementById("teachers").innerHTML = data.teachers.map(t => `
-    <div class="teacher"><div class="av">${initials(t.name)}</div><b>${t.name}</b><span>${t.role}</span><small>${t.info}</small></div>`).join("");
+    <div class="t"><div class="av">${initials(t.name)}</div><div><b>${t.name}</b><span>${t.role}</span></div><small>${t.info}</small></div>`).join("");
 }
 
 function updateButton() {
@@ -246,8 +275,8 @@ if (inTelegram) {
   document.getElementById("fallbackBar").style.display = "none";
   tg.ready();
   tg.expand();
-  tg.setHeaderColor("#213a8f");
-  tg.setBackgroundColor("#f3f5fb");
+  tg.setHeaderColor("#faf7ef");
+  tg.setBackgroundColor("#faf7ef");
   tg.MainButton.color = "#213a8f";
   tg.MainButton.textColor = "#ffffff";
   tg.MainButton.onClick(submit);
